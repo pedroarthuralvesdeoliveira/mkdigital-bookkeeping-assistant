@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MKdigital — AI Bookkeeping Assistant (Project A) | Pedro de Oliveira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <span class="brand-badge">MKdigital · Project A</span>
+        <div>
+          <h1>AI Bookkeeping Assistant — Switzerland &amp; Brazil</h1>
+          <p class="subtitle">Clean Architecture · Strategy Pattern · Explicit State Machine · <code>Decimal</code> Precision — Built by <strong>Pedro de Oliveira</strong></p>
+        </div>
+      </div>
+      <div class="header-links">
+        <a href="https://mkdigital-plant-brownfield.pedroarthuralvesdeoliveira1.workers.dev" target="_blank" rel="noopener" class="btn btn-outline">Open Project B (Plant Brownfield) →</a>
+        <a href="https://github.com/pedroarthuralvesdeoliveira/mkdigital-bookkeeping-assistant" target="_blank" rel="noopener" class="btn btn-outline">GitHub Repo</a>
+        <a href="https://github.com/pedroarthuralvesdeoliveira/AI-Contract-Risk-Analysis-Agent" target="_blank" rel="noopener" class="btn btn-primary">AI Contract Risk Agent</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-card">
+      <div>
+        <h2>Autonomous Accounting Document Ingestion, Double-Entry Ledger &amp; Bank Reconciliation</h2>
+        <p>Processes Swiss QR-Bills (<code>CHE-xxx.xxx.xxx MWST</code>, <em>Kontenrahmen KMU</em>) and Brazilian Fiscal Invoices (<code>NF-e</code>, <code>CNPJ</code>, <em>Plano de Contas Referencial</em>), enforcing strict double-entry invariants ($\sum \text{Debit} = \sum \text{Credit}$) and explicit state transitions.</p>
+      </div>
+      <div class="controls">
+        <select id="doc-selector" aria-label="Select Accounting Document"></select>
+        <button id="btn-next" class="btn btn-primary">Run Next Scenario</button>
+      </div>
+    </section>
+
+    <section class="state-ribbon" aria-label="Explicit State Machine">
+      <span class="kv-label" style="font-size:0.82rem; font-weight:600;">Explicit State Machine Transition Path:</span>
+      <div id="state-steps" class="state-steps"></div>
+    </section>
+
+    <section class="grid-3">
+      <article class="card">
+        <div class="card-header">
+          <span class="pill">1. Document AI Extraction</span>
+          <span id="bk-confidence" class="pill"></span>
+        </div>
+        <div id="bk-doc-preview" class="box"></div>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <span class="pill">2. Strategy Pattern Ledger</span>
+          <span class="pill pill-green">∑ Debit = ∑ Credit ✓</span>
+        </div>
+        <div id="bk-category" class="banner"></div>
+        <table class="data-table" id="bk-ledger-table">
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Ledger Description</th>
+              <th class="num">Debit</th>
+              <th class="num">Credit</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </article>
+
+      <article class="card">
+        <div class="card-header">
+          <span class="pill">3. Bank Feed &amp; Audit Log</span>
+          <span id="bk-match-badge" class="pill"></span>
+        </div>
+        <div id="bk-bank-box" class="box"></div>
+        <h4 class="subhead">Deterministic Audit Trail</h4>
+        <ul id="bk-notes-list" class="check-list"></ul>
+      </article>
+    </section>
+
+    <section class="grid-3">
+      <article class="card">
+        <div class="card-header"><span class="pill">SOLID &amp; Clean Architecture</span></div>
+        <ul class="check-list">
+          <li><strong>Strategy Pattern:</strong> <code>SwissKmuStrategy</code> and <code>BrazilianNfeStrategy</code> implement <code>AccountingRuleStrategy</code> protocol without conditional sprawl (Open/Closed Principle).</li>
+          <li><strong>Explicit State Machine:</strong> Immutable transition map (<code>INGESTED → EXTRACTED → VALIDATED → LEDGER_POSTED → RECONCILED | FLAGGED_FOR_REVIEW</code>).</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="card-header"><span class="pill">Data Structures &amp; Invariants</span></div>
+        <ul class="check-list">
+          <li><strong>Exact Monetary Arithmetic:</strong> Uses fixed-point <code>Decimal</code> with <code>ROUND_HALF_UP</code> quantization—never binary floating-point.</li>
+          <li><strong>Domain Post-Condition:</strong> <code>ReconciliationReport.__post_init__</code> guarantees $\sum \text{Debit} = \sum \text{Credit} = \text{Gross}$ on every execution.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <div class="card-header"><span class="pill">Production Track Record</span></div>
+        <ul class="check-list">
+          <li>Built production OCR/Claude Vision invoice extraction &amp; Oracle ERP cost-center mapping at Vila 11 with <strong>72 automated backend tests</strong>.</li>
+          <li>Author of open-source <a href="https://github.com/pedroarthuralvesdeoliveira/AI-Contract-Risk-Analysis-Agent" target="_blank" style="color:var(--accent)">AI-Contract-Risk-Analysis-Agent</a> (Python, Gemini, Pydantic v2).</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span><strong>Pedro Arthur Alves de Oliveira</strong> · Active CNPJ: 63.073.459/0001-35 · <a href="mailto:pedroarthuralvesdeoliveira1@gmail.com">pedroarthuralvesdeoliveira1@gmail.com</a></span>
+      <span>FastAPI · Pydantic v2 · Pytest · Deployed on Cloudflare Pages</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
